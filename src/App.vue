@@ -18,8 +18,6 @@
 import Flashcard from "./components/Flashcard.vue";
 import axios from "axios";
 
-// var API_BASE_URL = "http://localhost:9000/";
-
 export default {
   name: "app",
   components: {
