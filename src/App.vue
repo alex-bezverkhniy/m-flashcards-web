@@ -18,7 +18,7 @@
 import Flashcard from "./components/Flashcard.vue";
 import axios from "axios";
 
-var API_BASE_URL = "http://localhost:9000/";
+// var API_BASE_URL = "http://localhost:9000/";
 
 export default {
   name: "app",
@@ -56,7 +56,10 @@ export default {
       this.showAnswerBtn.classList.add("hide");
     },
     getRandom: function() {
-      axios.get(API_BASE_URL + "api/flashcard/random").then(response => {        
+      var apiUrl = process.env.VUE_APP_ROOT_API + "/api/flashcard/random";
+      // eslint-disable-next-line no-console
+      console.log("call ", apiUrl);
+      axios.get(apiUrl).then(response => {        
         this.flashcardData = response.data;
         this.randomBtn.classList.add("hide");
         this.answerUl.classList.add("hide");
